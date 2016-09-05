@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ $# -ne 1 ] && echo "usage: sgrep <regexp>" && exit 1
+
+
+echo working. . .
+find . -exec grep -i $1 /dev/null {} \; 1>> /tmp/sgrep_$$.txt 2>/dev/null
+echo "done. . . results in [/tmp/sgrep_$$.txt]"
+read
+more /tmp/sgrep_$$.txt
+
+exit $?

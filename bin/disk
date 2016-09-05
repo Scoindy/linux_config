@@ -1,0 +1,6 @@
+#!/bin/ksh
+I=0
+while [ $I -lt 10 ]; do
+  lspv -p hdisk$I 2>/dev/null
+  I=$(expr $I + 1)
+done

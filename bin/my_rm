@@ -1,0 +1,27 @@
+#!/bin/bash
+###############################################################################
+# Name        : my_rm                                                         # 
+# Description :                                                               #
+#                                                                             #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 27th November 1998                                            #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 27 Nov 98 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 1 ] && echo "rm: too few arguments" && exit 1
+FILE1=/tmp/my_rm.$$
+for FILE; do
+  if [ -e $FILE ]; then
+    NUM=$(ls $HOME_TSH | grep -c $(basename $FILE))
+    \mv $FILE $HOME_TSH/$(basename $FILE),$NUM
+  else
+    echo "rm: $FILE non-existant" 
+    exit 1
+  fi
+done

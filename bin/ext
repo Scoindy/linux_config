@@ -1,0 +1,3 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "ext: nothing to strip" && exit 1 || echo ${1%.*} && echo ${1#*.}

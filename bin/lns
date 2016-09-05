@@ -1,0 +1,23 @@
+#!/bin/ksh
+###############################################################################
+# Name        : lns                                                           # 
+# Description : adds line numbers to a text file                              #
+#                                                                             #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 23rd April 2004                                               #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 23 Apr 04 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 1 ] && echo "usage: lns <filename>" && exit 1
+for FILE; do
+  [ -f $FILE ] && echo "lns: formatting '$FILE'" \
+               && pr -t -n $FILE > $FILE.lns     \
+               || echo "lns: can't find '$FILE'" && exit 1
+done
+exit $?

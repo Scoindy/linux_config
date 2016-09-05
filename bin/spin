@@ -1,0 +1,30 @@
+#!/bin/bash
+[ $# -ne 1 ] && echo "usage: spin <delay factor>" && exit 1
+trap "echo \"\n\"; tput cnorm; exit" 1 2 3 15 25
+clear
+printf "\n\n\n\n\n\n\n\n\t\t\t[ ]\b\b"
+tput civis
+  
+while [ x ]; do
+  for CHAR in 1 2 3 4; do
+    case $CHAR in
+      1) echo -e '|\b\c'
+         ;;
+      2) echo -e '/\b\c'
+         ;;
+      3) echo -e '-\b\c'
+         ;;
+      4) echo -e '\\\b\c'
+        ;;
+    esac
+  
+    #####
+    #  Delay loop - increase X to slow
+    #####
+    X=$1
+    while [ $X -gt 0 ]; do
+      X=$(expr $X - 1)
+    done
+  done
+done
+exit 0

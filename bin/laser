@@ -1,0 +1,23 @@
+#!/bin/ksh
+###############################################################################
+# Name        : laser                                                         # 
+# Description :                                                               #
+#                                                                             #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 21st January 1999                                             #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 21 Jan 99 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 1 ] && echo "usage: laser <filename>" && exit 1
+for FILE; do
+  [ -f $FILE ] && echo "laser: printing '$FILE'" \
+               && pr -w72 -f -n $FILE | lp       \
+               || echo "laser: can't find '$FILE'" && exit 1
+done
+exit $?

@@ -1,0 +1,33 @@
+#!/bin/bash
+###############################################################################
+# Name        : blast                                                         #
+# Description : recursively searches and replaces text in all text files      #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 1st June 2001                                                 #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 01 Jun 01 | 1.00 | Initial Issue                                    #
+###############################################################################
+if [ $# -ne 2 ]; then
+  echo "usage: $(basename $0) <search string> <replace string>"
+  exit 1
+fi
+
+echo "replacing [$1] with [$2] . . . "
+
+TMP_FILE="/tmp/blast.$$"
+
+find . -type f -print > $TMP_FILE
+
+while read FILE; do
+
+  sed -e "s/$1/$2/g" -i "$FILE"
+
+done < $TMP_FILE
+
+# \rm -f $TMP_FILE

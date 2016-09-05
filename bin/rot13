@@ -1,0 +1,23 @@
+#!/bin/bash
+###############################################################################
+# Name        : rot13                                                         #
+# Description : encryption that might fool a 3 year old                       #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 21st January 1999                                             #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 21 Jan 99 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 1 -o $# -gt 2 ] && echo "usage: rot13 [-d] <filename>" && exit 1
+if [ "$1" = "-d" ]; then
+echo t
+  cat "$2" | tr 'n-za-mN-ZA-M' 'a-zA-Z'
+else
+  cat "$@" | tr 'a-zA-Z' 'n-za-mN-ZA-M'
+fi
+exit 0

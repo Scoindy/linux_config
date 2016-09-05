@@ -1,0 +1,6 @@
+#!/bin/ksh
+
+K=$(df -k /vip_test | tail -1 | awk '{print $3}')
+FREE=$(expr $K / 1024)
+echo "free: [$FREE] free MB"
+exit 0

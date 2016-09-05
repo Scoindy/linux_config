@@ -1,0 +1,26 @@
+#!/bin/bash
+###############################################################################
+# Name        : lfile                                                         #
+# Description : renames files to lower case                                   #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 28th September 2005                                           #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 28 Sep 05 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 1 ] && echo "usage: lfile <filename>" && exit 1
+
+for UFILE in "$@"; do
+
+  LFILE=$(echo $UFILE | awk '{ print tolower($0) }')
+
+  echo -n "renaming [$UFILE] to [$LFILE] . . . "
+  \mv $UFILE $LFILE 2>/dev/null
+  echo "done"
+
+done
