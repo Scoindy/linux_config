@@ -1,0 +1,24 @@
+#!/bin/bash
+
+[ $# -ne 1 ] && echo "usage: zap2 <-w> | <.> | <directory>" && exit 1
+
+if [ "$1" = "-w" ]; then
+  cat $HOME/.zoom | awk '{print $2}'
+  exit 0
+elif [ "$1" = "." ]; then
+  echo "zap2: updating config file with [$(pwd)]"
+  echo "cd $(pwd)" > $HOME/.zoom
+else
+  if [ -d $PWD/$1 ]; then
+    echo "zap2: directory [$PWD/$1] already exists"
+    echo "zap2: updating config file"
+    echo "cd $PWD/$1" > $HOME/.zoom
+  else
+    echo "zap2: creating directory [$PWD/$1]"
+    mkdir -p $PWD/$1
+    [ $? -ne 0 ] && exit 1
+    echo "zap2: updating config file"
+    echo "cd $PWD/$1" > $HOME/.zoom
+  fi
+fi
+exit 0

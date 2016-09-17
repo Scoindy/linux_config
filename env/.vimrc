@@ -1,6 +1,6 @@
 set nocompatible
-set columns=128
-set lines=48
+"set columns=128
+"set lines=48
 set showmatch     
 set showmode      
 set report=1      
@@ -8,8 +8,8 @@ set noerrorbells
 set flash         
 set ignorecase
 set incsearch
-set directory=.,$TEMP
-set backupdir=$TEMP
+set directory=/tmp
+set backupdir=/tmp
 set backspace=indent,eol,start
 set ruler
 set laststatus=2

@@ -30,7 +30,7 @@ export PATH=".:$HOME/bin:$PATH"
 export CLASSPATH="/usr/share/java"
 export PS1="$YEL[\u@\h]\[\e[m\] \W \$ "
 export EDITOR="vi"
-#export TERM="vt220"
+export LD_LIBRARY_PATH="/usr/include"
 
 set -o noclobber
 set -o vi 

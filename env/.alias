@@ -2,16 +2,20 @@ alias bin="cd $HOME/bin"
 alias tmp="cd $HOME/tmp"
 alias dev="cd $HOME/dev"
 alias tsh="cd $HOME/trash"
+alias gbin="cd $GOPATH/bin"
 
 alias h="history"
 alias ls="ls -F"
 alias sl="ls -F"
+alias vi="vim"
 alias dir="ls -l | grep ^d"
+alias gpg="gpg2"
 alias psme="ps -fu$(whoami)"
 alias more="less"
 alias zoom=". $HOME/.zoom"
 alias trash="ls -latr $HOME_TSH | more"
 alias empty="ls $HOME_TSH | xargs -i -t \rm -rf $HOME_TSH/{}; echo done."
+alias mshare="sudo mount -t vboxsf _sprite /share"
 
 alias rm="my_rm"
 alias mv="mv -i"
@@ -24,3 +28,9 @@ alias cp="cp -i"
 # alias etl="mysql -v -u scott -D ETL"
 # alias mst="mysql -v -u scott -D scott_test"
 alias ms="mysql -v -u scott -D scott"
+
+####
+#  Git
+####
+alias gstat="git status"
+alias ghome="cd $HOME/git"
