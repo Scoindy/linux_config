@@ -1,0 +1,9 @@
+#!/bin/bash
+
+####
+#  IP
+####
+echo "    IP [$(curl -s ifconfig.co)]"
+echo "TOR IP [$(curl -s --socks5 127.0.0.1:9050 https://ifconfig.co)]"
+
+exit 0
