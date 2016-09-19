@@ -1,6 +1,7 @@
 alias bin="cd $HOME/bin"
 alias tmp="cd $HOME/tmp"
 alias dev="cd $HOME/dev"
+alias log="cd $HOME/log"
 alias tsh="cd $HOME/trash"
 alias gbin="cd $GOPATH/bin"
 
@@ -30,7 +31,20 @@ alias cp="cp -i"
 alias ms="mysql -v -u scott -D scott"
 
 ####
-#  Git
+#  Git 
 ####
-alias gstat="git status"
-alias ghome="cd $HOME/git"
+alias gh="cd $HOME/git"
+alias gr="git remote -v"
+alias gs="git status"
+
+####
+#  systemd services
+####
+# systemctl enable /lib/systemd/system/ssh.service
+# systemctl start ssh
+# systemctl status ssh
+
+####
+#  ssh authentication localhost
+####
+# cd $HOME/.ssh; ssh-keygen -t rsa; cat id_rsa.pub > $HOME/.ssh/authorized_keys

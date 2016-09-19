@@ -4,6 +4,8 @@
 #  IP
 ####
 echo "CLEARNET IP [$(curl -s ifconfig.co)]"
-echo "     TOR IP [$(curl -s --socks5 127.0.0.1:9050 https://ifconfig.co)]"
+echo "     TOR IP [$(curl -s --socks5 127.0.0.1:9050 http://ifconfig.co)]"
+# echo "     TOR IP [$(curl -s --socks5 127.0.0.1:9051 http://ifconfig.co)]"
+# echo "     TOR IP [$(curl -s --socks5 127.0.0.1:9051 https://ifconfig.co)]"
 
 exit 0

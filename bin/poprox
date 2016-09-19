@@ -1,0 +1,24 @@
+#!/usr/bin/php 
+<?php
+$url="http://testphp.vulnweb.com/";
+$ch = curl_init($url);
+# $url = "http://brugbart.com/Examples/http-post.php";
+
+$ip="137.135.166.225";
+$port="8142";
+
+
+curl_setopt($ch, CURLOPT_PROXY, $ip);
+curl_setopt($ch, CURLOPT_PROXYPORT, $port);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
+
+# curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+
+// The username and password
+# curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'USERNAME:PASSWORD');
+
+// Perform the request, and save content to $result
+$result = curl_exec($ch);
+echo $result;
+?>

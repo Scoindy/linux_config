@@ -1,0 +1,48 @@
+#!/bin/bash
+###############################################################################
+# Name        : repkey
+# Description : retrieves a repository's public GPG key and adds it to apt-key
+# Author      : Scott Walkinshaw
+# Date        : 17th August 2012
+#
+# Notes       : should really retreive default keyerver from gpg-agent...
+#               man gpg2 /--keyserver
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 17 Aug 12 | 1.00 | Initial Issue                                    #
+###############################################################################
+set -o pipefail
+# ARR="([Y\n] [n\Y] [N\y] [y/N])" && YN="$(echo $ARR[$RANDOM %4])"
+# echo $YR
+[ $# -ne 1 ] && echo "usage: repkey <signature>" && exit 1
+FTMP="/tmp/$(basename $0).$$"
+KSRV="hkp://keys.gnupg.net"
+echo -e "repkey: sending signature to keyserver ..."
+OUT="$(gpg2 --keyserver $KSRV --recv-key $1 2>&1)"
+[ $? -ne 0 ] && echo -e "repkey: couldn't retrieve public key from [$KSRV]\n$OUT" && exit 1
+echo -e "\n$OUT\n"
+if [[ $(echo "$OUT" | grep -ci "not changed") -ne "0" ]]; then
+  echo -e "repkey: your GPG keyring already holds this public key ..." 
+  echo -e "repkey: import into apt-key anyway? (y/n) : \c"
+  while read -n1 ANS; do
+    echo
+    [[ $ANS != [Yy] ]] && exit 0
+    break
+  done 
+fi
+#### gpg2 seems to unset variables...
+echo "repkey: adding key to apt-key ..."
+K2=$KEY
+echo "$KEY"
+echo "$K2"
+gpg2 -a --export $KEY | sudo apt-key add - 
+sleep 2
+[[  $? -ne 0 ]] && echo -e "repkkey: error adding key to apt-key" && exit 1
+echo "repkey: key loaded successfully into apt-key!"
+# printf '%50s\n' | tr ' ' -
+echo $KEY
+echo $K2
+apt-key list $KEY

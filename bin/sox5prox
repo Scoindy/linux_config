@@ -1,0 +1,28 @@
+#!/bin/bash
+###############################################################################
+# Name        : sox2prox
+# Description : creates a local socks 5 proxy
+# Author      : Scott Walkinshaw
+# Date        : 18th September 2016
+#
+# Notes       : ssh service must be running 
+#         
+#               -A  enable user-agent forwarding
+#               -N  don't execute remote cmd - just forward packets
+#               -D  bind_address:port
+#               -v  verbose
+#               -f  run in background
+#
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 18 Sep 16 | 1.00 | Initial Issue                                    #
+###############################################################################
+COUNT=$(ps -efa | grep -v grep | grep -c localhost:9055)
+[[ $COUNT -ne 0 ]] && echo "sox2prox: proxy already running..." && exit 1
+echo "starting socks5 proxy at localhost:9055"
+ssh -v -f -A -N -D localhost:9055 localhost
+
+[[ $? -eq 0 ]] && echo "sox2prox: proxy started..." || exit $?
