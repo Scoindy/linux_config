@@ -32,6 +32,7 @@ export PS1="$YEL[\u@\h]\[\e[m\] \W \$ "
 export EDITOR="vi"
 export LD_LIBRARY_PATH="/usr/include:/usr/lib/x86_64-linux-gnu:/usr/share/lintian/overrides"
 
+set term=xterm-256color
 set -o noclobber
 set -o vi 
 
