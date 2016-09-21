@@ -31,11 +31,13 @@ alias cp="cp -i"
 alias ms="mysql -v -u scott -D scott"
 
 ####
-#  Git 
+#  Git (prob should put aliases in global .gitconfig)
 ####
-alias gh="cd $HOME/git"
+export GITHOME="$HOME/git"
+alias  g="cd $GITHOME"
 alias gr="git remote -v"
 alias gs="git status"
+alias gc="git clean -dxi"
 
 ####
 #  systemd services
