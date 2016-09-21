@@ -1,6 +1,15 @@
+if has('gui_running')
+  set columns=128
+  set lines=48
+else
+  " I find it best to set defaults for colour/rendering 
+  " to maintain consistent experience accross different
+  " terminal emulators or when $TERM is incorrect 
+  set t_Co=256
+  set term=xterm-256color
+endif
+
 set nocompatible
-"set columns=128
-"set lines=48
 set showmatch     
 set showmode      
 set report=1      
