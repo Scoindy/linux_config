@@ -16,10 +16,11 @@
 ###############################################################################
 [ $# -lt 1 ] && echo "rm: too few arguments" && exit 1
 FILE1=/tmp/my_rm.$$
+[[ ! -d $HOME/trash ]] && echo "$HOME/trash doesn\'t exist" && exit 1
 for FILE; do
   if [ -e $FILE ]; then
-    NUM=$(ls $HOME_TSH | grep -c $(basename $FILE))
-    \mv $FILE $HOME_TSH/$(basename $FILE),$NUM
+    NUM=$(ls $HOME/trash | grep -c $(basename $FILE))
+    \mv $FILE $HOME/trash/$(basename $FILE),$NUM
   else
     echo "rm: $FILE non-existant" 
     exit 1

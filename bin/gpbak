@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# /usr/bin/gpg2 --export-secret-key --armor BE0505B8 > $HOME/tmp/swBE0505B8.20190922.private.gpg.asc
+# /usr/bin/gpg2 --export        --armor BE0505B8 > $HOME/tmp/swBE0505B8.20190922.public.gpg.asc
+# /usr/bin/gpg2 --export-secret-key --armor EF4862C4 > $HOME/tmp/ipEF4862C4.20190922.private.gpg.asc
+# /usr/bin/gpg2 --export        --armor EF4862C4 > $HOME/tmp/ipEF4862C4.20190922.public.gpg.asc
+/usr/bin/gpg2 --output $HOME/tmp/swBE0505B8.20190922.revoke.gpg.asc --gen-revoke BE0505B8 
+/usr/bin/gpg2 --output $HOME/tmp/ipEF4862C4.20190922.revoke.gpg.asc --gen-revoke EF4862C4

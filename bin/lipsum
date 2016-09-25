@@ -1,0 +1,3 @@
+#!/bin/bash
+curl -s www.lipsum.com/feed/xml | xmllint --xpath 'string(//lipsum)' - | head -n ${1:-5}
+exit $?

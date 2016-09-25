@@ -2,6 +2,7 @@ alias bin="cd $HOME/bin"
 alias tmp="cd $HOME/tmp"
 alias dev="cd $HOME/dev"
 alias log="cd $HOME/log"
+alias doc="cd $HOME/documents"
 alias tsh="cd $HOME/trash"
 alias gbin="cd $GOPATH/bin"
 
@@ -14,8 +15,8 @@ alias gpg="gpg2"
 alias psme="ps -fu$(whoami)"
 alias more="less"
 alias zoom=". $HOME/.zoom"
-alias trash="ls -latr $HOME_TSH | more"
-alias empty="ls $HOME_TSH | xargs -i -t \rm -rf $HOME_TSH/{}; echo done."
+alias trash="ls -ltr $HOME/trash"
+alias empty="ls $HOME/trash | xargs -i -t \rm -rf $HOME/trash/{}; echo done."
 alias mshare="sudo mount -t vboxsf _sprite /share"
 
 alias rm="my_rm"
@@ -40,13 +41,6 @@ alias gs="git status"
 alias gc="git clean -dxi"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 # alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '( printf '%50s\n' | tr ' ' && -echo {} && cd {} && git status && echo)' \;"
-
-####
-#  systemd services
-####
-# systemctl enable /lib/systemd/system/ssh.service
-# systemctl start ssh
-# systemctl status ssh
 
 ####
 #  ssh authentication localhost
