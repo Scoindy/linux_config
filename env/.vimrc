@@ -27,6 +27,12 @@ syntax off
 colorscheme swblue002
 inoremap <C-U> <C-G>u<C-U>
 
+" jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 map V 02i j0    
 map v 02xj2h      
 map K 0i# j0    

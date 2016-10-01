@@ -1,0 +1,122 @@
+#!/bin/bash
+###############################################################################
+# Name        : tthrob
+# Description : whizzy text throbber
+# Author      : Scott Walkinshaw
+# Date        : 11th January 2002
+#
+# Notes       : saw somthing similar with a hard-coded array and thought
+#               it would be more useful if everything was dynamic.
+#               I really hope I don't lose this script as 
+#               it was a head fuck writing it
+#
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 11 Jan 02 | 1.00 | Initial Issue                                    #
+###############################################################################
+[ $# -lt 2 ] && echo "usage: tthrob <string1> <string2>" && exit 1
+COLOUR=207
+STATIC="true"
+O1=$1
+O2=$2
+S1="$O1 "
+S2=" $O2"
+S3=""
+S4=""
+I=1
+P1="$S1 | $S2"
+SLEN=${#P1}
+L=$(expr $SLEN - 1)
+OL=$L
+SL=${#S1}
+SL2=${#S2}
+LINE=$(printf " #%*s" $L "$S1")
+LINE=${LINE}$(printf "%s" "|")
+LINE=${LINE}$(printf "%*s#" $(expr $L \* -1) "$S2")
+ARR[0]="$LINE"
+while [[ $L -gt 0 ]]; do
+
+  ####
+  #  S3 = string 2 starting too appear on the left hand side
+  #  start by sub stringing the original string 2
+  #  when  substringed the entire word then start right
+  #  paddding with spaces
+  #  how do you know if you've sub stringed the whole word?
+  #     length S3 -gt length S2
+  ####
+  if [[ "${#S3}" -ge "${#O2}"  ]]; then
+    S3="$S3 "
+  else
+    S3=${O2:0:$I}
+  fi
+
+  ####
+  #  S4 = string 1 starting to appear tail first on the right hand side
+  #  grab last $I bytes of string 1 , if we've grabbed the whole string
+  #  start left paddding with spaces
+  ####  
+  if [[ "${#S4}" -ge "${#O1}"  ]]; then
+    S4=" $S4"
+  else
+    S4=${O1:(-$I)}
+  fi
+  
+  L=$(expr $L - 1)
+  LINE=$(printf " %s#%*s" "$S3" $L "$S1")
+  LINE=${LINE}$(printf "%s" "|")
+  LINE=${LINE}$(printf "%*s#%s" $(expr $L \* -1) "$S2" "$S4")
+  ARR[$I]="$LINE"
+  I=$(expr $I + 1);
+
+
+  L2=$(expr $I + $SL)
+  if [ $L2 -gt $OL ]; then
+    S1=${S1:1}
+  fi
+  
+  L3=$(expr $I + $SL2)
+  if [ -n "$S2" -a $L3 -gt $OL ]; then
+    S2=${S2:0:${#S2} - 1}
+  fi
+  
+done
+  
+####
+#  add final line
+####
+LINE=$(printf " %*s # %*s" $(expr $OL \* -1) "$O2" $OL "$O1")
+ARR[$I]="$LINE"
+tput civis
+I=0
+echo
+while [ $I -le 10 ]; do
+  C=0
+
+  ####
+  #  walk forwards through the array
+  ####
+  while [ $C -lt ${#ARR[@]} ]; do
+    [[ -z $STATIC ]] && COL=$(expr $COLOUR + $C) || COL=$COLOUR
+    echo -ne "\e[38;5;${COL}m${ARR[$C]}\r"
+    sleep "0.03"
+    ((C++))
+  done
+
+  ####
+  #  then back again
+  ####
+  C=$(expr $C - 2)
+  while [ $C -gt 0 ]; do
+    [[ -z $STATIC ]] && COL=$(expr $COLOUR + $C) || COL=$COLOUR
+    echo -ne "\e[38;5;${COL}m${ARR[$C]}\r"
+    sleep "0.03"
+    ((C--))
+  done
+  ((I++))
+done
+echo -e "\e[0m"
+echo -e ""
+tput cnorm
