@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<DefaultAppDirs/>
+	<DefaultDirectoryDirs/>
+	<DefaultMergeDirs/>
+	<MergeFile type="parent">/etc/xdg/menus/cinnamon-applications.menu</MergeFile>
+	<Menu>
+		<Name>Accessories</Name>
+		<Directory>cinnamon-utility.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>nemo.desktop</Filename>
+			<Filename>gvim.desktop</Filename>
+			<Filename>bluetooth-sendto.desktop</Filename>
+			<Filename>org.gnome.FileRoller.desktop</Filename>
+			<Filename>menulibre.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>cinnamon-education.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Games</Name>
+		<Directory>cinnamon-game.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Graphics</Name>
+		<Directory>cinnamon-graphics.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>menulibre-new-launcher.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Internet</Name>
+		<Directory>cinnamon-network.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>bssh.desktop</Filename>
+			<Filename>bvnc.desktop</Filename>
+			<Filename>firefox.desktop</Filename>
+			<Filename>thunderbird.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Office</Name>
+		<Directory>cinnamon-office.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Other</Name>
+		<Directory>cinnamon-other.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>gcr-prompter.desktop</Filename>
+			<Filename>nemo-autorun-software.desktop</Filename>
+			<Filename>cinnamon-killer-daemon.desktop</Filename>
+			<Filename>cinnamon-settings-daemon.desktop</Filename>
+			<Filename>nemo-autostart.desktop</Filename>
+			<Filename>nm-applet.desktop</Filename>
+			<Filename>cinnamon-screensaver.desktop</Filename>
+			<Filename>gcr-viewer.desktop</Filename>
+			<Filename>geoclue-where-am-i.desktop</Filename>
+			<Filename>userapp-Firefox-I8V8OY.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Development</Name>
+		<Directory>cinnamon-development.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>eclipse.desktop</Filename>
+			<Filename>glade.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Multimedia</Name>
+		<Directory>cinnamon-audio-video.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>org.gnome.Cheese.desktop</Filename>
+			<Filename>qv4l2.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>System</Name>
+		<Directory>cinnamon-system-tools.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Universal Access</Name>
+		<Directory>cinnamon-utility-accessibility.directory</Directory>
+		<Layout>
+			<Merge type="menus"/>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>menulibre-utilities</Name>
+		<Directory>menulibre-utilities.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>gtk3-demo.desktop</Filename>
+			<Filename>gtk3-widget-factory.desktop</Filename>
+			<Filename>menulibre-xeyes.desktop</Filename>
+			<Filename>gtk3-icon-browser.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Administration</Name>
+		<Directory>cinnamon-settings-system.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>avahi-discover.desktop</Filename>
+			<Filename>cinnamon2d.desktop</Filename>
+			<Filename>cinnamon-control-center.desktop</Filename>
+			<Filename>gcm-picker.desktop</Filename>
+			<Filename>org.gnome.ColorProfileViewer.desktop</Filename>
+			<Filename>gcm-import.desktop</Filename>
+			<Filename>org.gnome.Terminal.desktop</Filename>
+			<Filename>cinnamon-settings-users.desktop</Filename>
+			<Filename>uxterm.desktop</Filename>
+			<Filename>xterm.desktop</Filename>
+			<Filename>ca.desrt.dconf-editor.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Menu>
+		<Name>Preferences</Name>
+		<Directory>cinnamon-settings.directory</Directory>
+		<DirectoryDir>/home/scott/.local/share/desktop-directories</DirectoryDir>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>cinnamon-settings-universal-access.desktop</Filename>
+			<Filename>cinnamon-settings-user.desktop</Filename>
+			<Filename>cinnamon-settings-applets.desktop</Filename>
+			<Filename>cinnamon-settings-backgrounds.desktop</Filename>
+			<Filename>cinnamon-menu-editor.desktop</Filename>
+			<Filename>cinnamon-color-panel.desktop</Filename>
+			<Filename>gcm-calibrate.desktop</Filename>
+			<Filename>cinnamon-settings-calendar.desktop</Filename>
+			<Filename>cinnamon-settings-desklets.desktop</Filename>
+			<Filename>cinnamon-settings-desktop.desktop</Filename>
+			<Filename>cinnamon-display-panel.desktop</Filename>
+			<Filename>cinnamon-settings-effects.desktop</Filename>
+			<Filename>cinnamon-settings-extensions.desktop</Filename>
+			<Filename>cinnamon-settings-fonts.desktop</Filename>
+			<Filename>cinnamon-settings-general.desktop</Filename>
+			<Filename>cinnamon-wacom-panel.desktop</Filename>
+			<Filename>cinnamon-settings-hotcorner.desktop</Filename>
+			<Filename>cinnamon-settings-keyboard.desktop</Filename>
+			<Filename>menulibre1.desktop</Filename>
+			<Filename>cinnamon-settings-mouse.desktop</Filename>
+			<Filename>cinnamon-network-panel.desktop</Filename>
+			<Filename>nm-connection-editor.desktop</Filename>
+			<Filename>cinnamon-settings-notifications.desktop</Filename>
+			<Filename>cinnamon-settings-panel.desktop</Filename>
+			<Filename>cinnamon-settings-power.desktop</Filename>
+			<Filename>cinnamon-settings-default.desktop</Filename>
+			<Filename>cinnamon-settings-privacy.desktop</Filename>
+			<Filename>cinnamon-region-panel.desktop</Filename>
+			<Filename>cinnamon-settings-screensaver.desktop</Filename>
+			<Filename>cinnamon-settings-sound.desktop</Filename>
+			<Filename>cinnamon-settings-startup.desktop</Filename>
+			<Filename>cinnamon-settings-info.desktop</Filename>
+			<Filename>cinnamon-settings.desktop</Filename>
+			<Filename>cinnamon-settings-themes.desktop</Filename>
+			<Filename>cinnamon-settings-windows.desktop</Filename>
+			<Filename>cinnamon-settings-tiling.desktop</Filename>
+			<Filename>cinnamon-settings-workspaces.desktop</Filename>
+			<Filename>menulibre.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+	<Layout>
+		<Menuname>Accessories</Menuname>
+		<Menuname>Education</Menuname>
+		<Menuname>Games</Menuname>
+		<Menuname>Graphics</Menuname>
+		<Menuname>Internet</Menuname>
+		<Menuname>Office</Menuname>
+		<Menuname>Other</Menuname>
+		<Menuname>Development</Menuname>
+		<Menuname>Multimedia</Menuname>
+		<Menuname>System</Menuname>
+		<Menuname>Universal Access</Menuname>
+		<Menuname>menulibre-utilities</Menuname>
+		<Menuname>Administration</Menuname>
+		<Menuname>Preferences</Menuname>
+	</Layout>
+</Menu>
