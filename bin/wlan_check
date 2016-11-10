@@ -1,0 +1,15 @@
+#!/bin/bash
+
+  exec >| >(tee $HOME_LOG/wlan_check.log)
+  exec 2>&1
+
+while :; do
+
+  echo -e "\n\t*****\t [$(date)]\t*****\n"
+
+  ping -v -c5 192.168.1.121
+  [[ $? -ne 0 ]] && echo "dead" && exit 0
+  
+  sleep 30
+  
+done
