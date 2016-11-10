@@ -1,5 +1,6 @@
 export HOME_DEV="$HOME/dev"
 export HOME_TMP="$HOME/tmp"
+export HOME_LOG="$HOME/log"
 export HOME_TSH="$HOME/trash"
 
 export EDITOR="vi"
