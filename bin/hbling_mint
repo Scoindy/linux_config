@@ -1,0 +1,50 @@
+#!/bin/bash
+
+####
+#  packages
+####
+apt install git
+apt install vim
+apt install dconf-tools
+apt install build-essential
+
+####
+#  clone rep
+####
+git config --global user.name "Scott Walkinshaw"
+git config --global user.email swalkinshaw@gmail.com
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+mkdir -p git
+#git clone https://github.com/Scoindy/scoindy /home/scott/git/scoindy
+
+####
+#  env
+####
+cd $HOME
+ln -sf $HOME/git/scoindy/env/.setup .
+ln -sf $HOME/git/scoindy/env/.alias .
+ln -sf $HOME/git/scoindy/env/.vimrc .
+ln -sf $HOME/git/scoindy/bin .
+sudo ln -sf $HOME/git/scoindy/env/swblue002.vim /usr/share/vim/vim74/colors/
+ 
+####
+# $HOME folders
+####
+\rmdir Music/ Public/ Videos/ Pictures/ Templates/
+mv Desktop/   desktop
+mv Documents/ documents
+mv Downloads/ downloads
+cp -f /home/scott/git/scoindy/env/user-dirs.dirs /home/.config/
+
+####
+#  Gterm profile
+####
+cat /home/scott/git/scoindy/env/gterm_profiles.txt | dconf load /org/gnome/terminal/legacy/profiles:/
+
+
+# echo ". /home/scott/.setup" >> .bashrc
+# echo ". /home/scott/.alias" >> .bashrc
+
+
+
