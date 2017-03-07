@@ -1,6 +1,11 @@
 #!/bin/bash
 
 ####
+#  assume guest utils installed
+####
+sudo usermod -aG vboxsf scott
+
+####
 #  packages
 ####
 apt install git
@@ -36,6 +41,8 @@ mv Desktop/   desktop
 mv Documents/ documents
 mv Downloads/ downloads
 cp -f /home/scott/git/scoindy/env/user-dirs.dirs /home/.config/
+
+mkdir -p trash tmp dev log
 
 ####
 #  Gterm profile

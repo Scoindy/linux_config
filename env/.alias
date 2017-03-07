@@ -46,6 +46,13 @@ alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} &
 # alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '( printf '%50s\n' | tr ' ' && -echo {} && cd {} && git status && echo)' \;"
 
 ####
+#  Pacman
+####
+alias pmi="sudo pacman -Syu"
+alias pmu="sudo pacman -Syu"
+alias pmr="sudo pacman -Rsn"
+
+####
 #  ssh authentication localhost
 ####
 # cd $HOME/.ssh; ssh-keygen -t rsa; cat id_rsa.pub > $HOME/.ssh/authorized_keys
