@@ -23,6 +23,9 @@ alias trash="ls -ltr $HOME/trash"
 alias empty="ls $HOME/trash | xargs -i -t \rm -rf $HOME/trash/{}; echo done."
 alias mshare="sudo mount -t vboxsf _sprite /share"
 
+alias wik="cd /var/www/public_html/wiki_test"
+alias www="cd /var/www/public_html"
+
 alias rm="my_rm"
 alias mv="mv -i"
 alias cp="cp -i"
@@ -33,7 +36,7 @@ alias cp="cp -i"
 # alias wpp="mysql -v -u scott -D Westpac_Datamart_Prod"
 # alias etl="mysql -v -u scott -D ETL"
 # alias mst="mysql -v -u scott -D scott_test"
-alias ms="mysql -v -u scott -D scott"
+alias sqls="mysql -v -u scott -pJa91vZYtrtpa1xcq --protocol=TCP"
 
 ####
 #  Git (prob should put aliases in global .gitconfig)
