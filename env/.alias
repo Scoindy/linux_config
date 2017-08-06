@@ -3,6 +3,7 @@ alias tmp="cd $HOME/tmp"
 alias dev="cd $HOME/dev"
 alias log="cd $HOME/log"
 alias doc="cd $HOME/documents"
+alias dwn="cd $HOME/downloads"
 alias tsh="cd $HOME/trash"
 alias gbin="cd $GOPATH/bin"
 
@@ -10,20 +11,36 @@ alias h="history"
 alias ls="ls -F"
 alias sl="ls -F"
 alias vi="vim"
+alias ps="ps f"
+alias ts="tail -n -0 -f /var/log/syslog"
 alias dir="ls -l | grep ^d"
 alias gpg="gpg2"
 alias psme="ps -fu$(whoami)"
+alias dmesg="dmesg -dx"
 alias more="less"
 alias zoom=". $HOME/.zoom"
 alias trash="ls -ltr $HOME/trash"
 alias empty="ls $HOME/trash | xargs -i -t \rm -rf $HOME/trash/{}; echo done."
 alias mshare="sudo mount -t vboxsf _sprite /share"
 
+alias wik="cd /var/www/public_html/wiki_test"
+alias www="cd /var/www/public_html"
+
 alias rm="my_rm"
 alias mv="mv -i"
 alias cp="cp -i"
 
+<<<<<<< HEAD
 alias ms="mysql -v -u scott -D scott"
+=======
+# alias fcl="mysql -v -u scott -D FlightCentre_Datamart_Loading"
+# alias fcp="mysql -v -u scott -D FlightCentre_Datamart_Prod"
+# alias wpl="mysql -v -u scott -D Westpac_Datamart_Loading"
+# alias wpp="mysql -v -u scott -D Westpac_Datamart_Prod"
+# alias etl="mysql -v -u scott -D ETL"
+# alias mst="mysql -v -u scott -D scott_test"
+alias sqls="mysql -v -u scott -pJa91vZYtrtpa1xcq --protocol=TCP"
+>>>>>>> 07f111da4ac31d6c3802b464b5d2a8e3d092a707
 
 ####
 #  Git (prob should put aliases in global .gitconfig)
@@ -35,6 +52,14 @@ alias gs="git status"
 alias gc="git clean -dxi"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 # alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '( printf '%50s\n' | tr ' ' && -echo {} && cd {} && git status && echo)' \;"
+
+####
+#  Pacman
+####
+alias pmi="sudo pacman -S"
+alias pmu="sudo pacman -Syu"
+alias pmr="sudo pacman -Rsn"
+alias pms="sudp pacman -Qi"
 
 ####
 #  ssh authentication localhost

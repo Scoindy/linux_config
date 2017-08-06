@@ -1,0 +1,1 @@
+delete first 5 bytes of each line in a file (vi) :%s/^.\{5}//gic
