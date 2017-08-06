@@ -23,12 +23,6 @@ alias rm="my_rm"
 alias mv="mv -i"
 alias cp="cp -i"
 
-# alias fcl="mysql -v -u scott -D FlightCentre_Datamart_Loading"
-# alias fcp="mysql -v -u scott -D FlightCentre_Datamart_Prod"
-# alias wpl="mysql -v -u scott -D Westpac_Datamart_Loading"
-# alias wpp="mysql -v -u scott -D Westpac_Datamart_Prod"
-# alias etl="mysql -v -u scott -D ETL"
-# alias mst="mysql -v -u scott -D scott_test"
 alias ms="mysql -v -u scott -D scott"
 
 ####
@@ -46,3 +40,18 @@ alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} &
 #  ssh authentication localhost
 ####
 # cd $HOME/.ssh; ssh-keygen -t rsa; cat id_rsa.pub > $HOME/.ssh/authorized_keys
+
+####
+#  Xorg
+####
+#alias sx="startx -- -keeptty >> /home/scott/.xsession-errors 2>&1"
+
+####
+#  Pacman
+####
+alias pmi="sudo pacman -S"
+alias pmu="sudo pacman -Syu"
+alias pmr="sudo pacman -Rsn"
+alias pmq="sudo pacman -Qev"
+
+alias pts="phoronix-test-suite"

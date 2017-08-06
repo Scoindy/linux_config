@@ -1,0 +1,6 @@
+#!/bin/bash
+\cp -fp $HOME/log/xsession-errors.1 $HOME/log/xsession-errors.2
+\cp -fp $HOME/log/xsession-errors   $HOME/log/xsession-errors.1
+\rm $HOME/.xsession-errors
+#xrandr --size 1600x900
+startx -- -keeptty >> /home/scott/.xsession-errors 2>&1
