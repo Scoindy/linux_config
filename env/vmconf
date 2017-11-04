@@ -1,10 +1,35 @@
+####
+#  x11vnc
+####
+[ $# -ne 1 ] && echo "missing password. . ." && exit 1
+sudo x11vnc -storepasswd $1 /etc/x11vnc.pass
+cat << EOF > /tmp/x11vnc.service
+[Unit]
+Description=Start x11vnc at startup.
+After=multi-user.target
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo mv /tmp/x11vnc.service /lib/systemd/system/x11vnc.service
+sudo systemctl daemon-reload
+sudo systemctl enable x11vnc.service
+sudo systemctl start x11vnc.service
+
+exit
+
+####
+#  git & env
+####
 mkdir -p ~/git
-#git config --global user.name "Scott Walkinshaw"
-#git config --global user.emailscott@peppercentral.net
-#git config --global credential.helper cache
-#git config --global credential.helper 'cache --timeout=3600'
-#ssh-keygen -t rsa -b 4096 -C "scott@peppercentral.net"
-#ssh-add ~/.ssh/id_rsa
+git config --global user.name "Scott Walkinshaw"
+git config --global user.emailscott@peppercentral.net
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=3600'
+ssh-keygen -t rsa -b 4096 -C "scott@peppercentral.net"
+ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 echo
 read -n 1 -sp "Hit space when key copied to github. . ."
@@ -18,10 +43,13 @@ cp -R /home/scott/git/scoindy/bin /home/scott
 sudo cp /home/scott/git/scoindy/env/swblue002.vim /usr/share/vim/vim80/colors/swblue002.vim
 cat /home/scott/git/scoindy/env/gterm_profiles.txt | dconf load /org/gnome/terminal/legacy/profiles:/
 echo ". .setup" >> /home/scott/.bashrc
-echo ". .alias" >> /home/scott/.bashrcit
+echo ". .alias" >> /home/scott/.bashrc
 
 exit
 
+####
+#  ssh-agent
+####
 mkdir -p ~/.config/systemd/user
 cat << EOF > ~/.config/systemd/user/ssh-agent.service
 [Unit]
