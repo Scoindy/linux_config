@@ -1,0 +1,43 @@
+mkdir -p ~/git
+#git config --global user.name "Scott Walkinshaw"
+#git config --global user.emailscott@peppercentral.net
+#git config --global credential.helper cache
+#git config --global credential.helper 'cache --timeout=3600'
+#ssh-keygen -t rsa -b 4096 -C "scott@peppercentral.net"
+#ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+echo
+read -n 1 -sp "Hit space when key copied to github. . ."
+echo
+cd ~/git
+git clone git@github.com:Scoindy/scoindy
+cp /home/scott/git/scoindy/env/.alias /home/scott/.alias
+cp /home/scott/git/scoindy/env/.setup /home/scott/.setup
+cp /home/scott/git/scoindy/env/.vimrc /home/scott/.vimrc
+cp -R /home/scott/git/scoindy/bin /home/scott
+sudo cp /home/scott/git/scoindy/env/swblue002.vim /usr/share/vim/vim80/colors/swblue002.vim
+cat /home/scott/git/scoindy/env/gterm_profiles.txt | dconf load /org/gnome/terminal/legacy/profiles:/
+echo ". .setup" >> /home/scott/.bashrc
+echo ". .alias" >> /home/scott/.bashrcit
+
+exit
+
+mkdir -p ~/.config/systemd/user
+cat << EOF > ~/.config/systemd/user/ssh-agent.service
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=forking
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -a '$SSH_AUTH_SOCK'
+
+[Install]
+WantedBy=default.target
+EOF
+
+echo 'export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"' >> ~/.bashrc
+. ~/.bashrc
+systemctl --user enable ssh-agent
+systemctl --user start ssh-agent
+ps -efa | grep ssh
