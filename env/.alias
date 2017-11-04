@@ -30,18 +30,6 @@ alias rm="my_rm"
 alias mv="mv -i"
 alias cp="cp -i"
 
-<<<<<<< HEAD
-alias ms="mysql -v -u scott -D scott"
-=======
-# alias fcl="mysql -v -u scott -D FlightCentre_Datamart_Loading"
-# alias fcp="mysql -v -u scott -D FlightCentre_Datamart_Prod"
-# alias wpl="mysql -v -u scott -D Westpac_Datamart_Loading"
-# alias wpp="mysql -v -u scott -D Westpac_Datamart_Prod"
-# alias etl="mysql -v -u scott -D ETL"
-# alias mst="mysql -v -u scott -D scott_test"
-alias sqls="mysql -v -u scott -pJa91vZYtrtpa1xcq --protocol=TCP"
->>>>>>> 07f111da4ac31d6c3802b464b5d2a8e3d092a707
-
 ####
 #  Git (prob should put aliases in global .gitconfig)
 ####
