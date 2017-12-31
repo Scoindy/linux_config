@@ -23,25 +23,12 @@ exit
 ####
 #  git & env
 ####
-mkdir -p ~/git
-git config --global user.name "Scott Walkinshaw"
-git config --global user.emailscott@peppercentral.net
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=3600'
-ssh-keygen -t rsa -b 4096 -C "scott@peppercentral.net"
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub
-echo
-read -n 1 -sp "Hit space when key copied to github. . ."
-echo
-cd ~/git
-git clone git@github.com:Scoindy/scoindy
-cp /home/scott/git/scoindy/env/.alias /home/scott/.alias
-cp /home/scott/git/scoindy/env/.setup /home/scott/.setup
-cp /home/scott/git/scoindy/env/.vimrc /home/scott/.vimrc
-cp -R /home/scott/git/scoindy/bin /home/scott
-sudo cp /home/scott/git/scoindy/env/swblue002.vim /usr/share/vim/vim80/colors/swblue002.vim
-cat /home/scott/git/scoindy/env/gterm_profiles.txt | dconf load /org/gnome/terminal/legacy/profiles:/
+echo "need to mount git first"
+ln -sf /mnt/nyc/git/peppercentral/env/.alias .
+ln -sf /mnt/nyc/git/peppercentral/env/.setup .
+ln -sf /mnt/nyc/git/peppercentral/env/.vimrc .
+ln -sf /mnt/nyc/git/peppercentral/bin .
+sudo ln -sf /mnt/nyc/git/peppercentral/env/swblue002.vim /usr/share/vim/vim80/colors/swblue002.vim
 echo ". .setup" >> /home/scott/.bashrc
 echo ". .alias" >> /home/scott/.bashrc
 
