@@ -8,7 +8,7 @@ export HISTSIZE=10000
 export HISTFILESIZE=20000
 export PATH=".:$HOME/bin:$PATH"
 export CLASSPATH="/usr/share/java"
-export PS1="\[\033[1;34m\][\u@\h]\[\033[m\] \W \$ "
+export PS1="\[\033[1;33m\][\u@\h]\[\033[m\] \W \$ "
 
 export LD_LIBRARY_PATH="/usr/include:/usr/lib/x86_64-linux-gnu:/usr/share/lintian/overrides"
 

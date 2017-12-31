@@ -23,7 +23,7 @@ set backspace=indent,eol,start
 set ruler
 set laststatus=2
 
-syntax off
+"syntax off
 colorscheme swblue002
 inoremap <C-U> <C-G>u<C-U>
 
