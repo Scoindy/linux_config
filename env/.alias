@@ -47,7 +47,7 @@ alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} &
 alias pmi="sudo pacman -S"
 alias pmu="sudo pacman -Syu"
 alias pmr="sudo pacman -Rsn"
-alias pms="sudp pacman -Qi"
+alias pms="sudo pacman -Qi"
 
 ####
 #  ssh authentication localhost
