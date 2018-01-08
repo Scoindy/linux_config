@@ -22,8 +22,9 @@ set backupdir=/tmp
 set backspace=indent,eol,start
 set ruler
 set laststatus=2
+set mouse=v
 
-"syntax off
+syntax off
 colorscheme swblue002
 inoremap <C-U> <C-G>u<C-U>
 
