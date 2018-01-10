@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f "$1.py" ]; then
+  echo pskel: $1.py already exists...
+  exit 1
+fi
+echo -e "#!/usr/bin/python\n\n" > $1.py
+chmod 755 $1.py
+vim + $1.py
