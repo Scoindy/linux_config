@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -f "$1.c" ]; then
+  echo csk: $1.c already exists...
+  exit 1
+fi
+(
+cat <<_EOF 
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+
+
+  return 0;
+}
+_EOF
+) > $1.c
+
+vim + $1.c
