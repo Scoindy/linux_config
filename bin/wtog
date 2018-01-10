@@ -1,0 +1,40 @@
+#!/bin/bash
+###############################################################################
+# Name        : wtog                                                          #
+# Description : toggles between a hosts wired and wifi devices                #
+#                                                                             #
+#                                                                             #
+# Author      : Scott Walkinshaw                                              #
+# Date        : 10th January 2017                                             #
+#                                                                             #
+###############################################################################
+###############################################################################
+# File Modification History                                                   #
+###############################################################################
+# Inits | Date      | Vers | Description                                      #
+# SW    | 10 Jan 17 |  1.1 | Initial Issue                                    #
+###############################################################################
+ETH=$(nmcli -t dev | grep ethernet)
+WIF=$(nmcli -t dev | grep wifi)
+DNUM=1
+
+for NM in $(nmcli -t dev); do
+ DEV=($(echo $NM | sed 's/:/ /g'))
+ if [ "${DEV[2]}" == "connected" ]; then
+    UP=${DEV[1]}
+    echo "[$UP] currently connected; disconnecting..."
+    nmcli con down ${DEV[3]}
+    break
+ fi
+done
+case "$UP" in
+  "ethernet") echo "[wifi] connecting..."
+              nmcli con up pc_wifi
+              ;;
+      "wifi") echo "[ethernet] connecting..."
+              nmcli con up pc_wired
+              ;;
+           *) echo "no interfaces currently connected"
+              ;;
+esac
+
