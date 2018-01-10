@@ -1,0 +1,90 @@
+#!/bin/bash
+
+if [ $# -ge 3 ]; then
+  echo "usage: sffmpeg [-s] <dir>" 
+  exit 1
+fi
+
+while getopts "s:" OPT; do
+  case $OPT in
+    s) SCALE=1
+       ;;
+   \?) echo "usage: sffmpeg [-s] <dir>" 
+       exit 1
+  esac
+done
+
+FDIR="$PWD"
+export FFREPORT=file="sffmpeg_report_$(date +%Y%m%d).log"
+LOGFILE="$FDIR/log/sffmpeg_$(date +%Y%m%d).log"
+
+exec >| >(tee $LOGFILE)
+
+IDIR="${2:-"$1"}"
+####
+#  strip trailing / created by bash completion
+####
+IDIR=${IDIR%/}
+
+ODIR="/opt/sffmpeg/output/$(basename "$IDIR")_converted"
+ODIR="${ODIR/1080/720}"
+CDIR="/mnt/NAS/public/Videos/Converted"
+
+echo -e "\t***** Conversion Starting @ [$(date)] *****\n"
+
+echo "creating ouput directory ..."
+mkdir -p "$ODIR"
+
+
+for IFILE in "$IDIR"/*; do
+
+  echo -e "\n\t\t************\t\t\n"
+
+  EXT="${IFILE##*.}"
+
+  if [[ "$EXT" == @(mkv|avi|mp4) ]]; then
+
+    echo "input file        ["$IFILE"] ..."
+    echo "input file size   [$(du -m "$IFILE" | cut -f1) MB] ..."
+  
+    OFILE="$(basename "${IFILE/1080/720}")"
+
+    echo "start time        [$(date)] ..."
+    echo "converting ..."
+
+    echo $IFILE
+    echo $ODIR
+    echo $OFILE
+
+    if [ -n "$SCALE" ]; then
+      ffmpeg -y -i "$IFILE" -vf scale=-1:720 -c:v libx264 -crf 23 -preset faster -c:a copy "$ODIR/$OFILE"
+    else
+      ffmpeg -y -i "$IFILE" -c:v libx264 -crf 23 -preset faster -c:a copy "$ODIR/$OFILE"
+    fi
+
+    echo "end time          [$(date)] ..."
+    echo "output file       ["$OFILE"] ..."
+    echo "output file size  [$(du -m "$ODIR/$OFILE" | cut -f1) MB] ..."
+
+  else 
+
+    echo "input file        ["$IFILE"] ..."
+    echo "unknown ext       [$EXT]; skipping ..."
+
+  fi
+
+done
+
+echo -e "\nmoving converted data to NAS ..."
+\mv "$ODIR" "$CDIR"
+
+echo -e "\n\t***** Conversion Complete @ [$(date)] *****\n"
+
+exit
+
+-vf scales to 720
+-c:v libx264 specifies the output codec libx264
+-crf controls quality 0 is best, 18 is nearly lossles, 23 is default
+-preset speficis how fast it will convert - the tradeoff to speed is compression
+-c:a copy means copy the audio
+
