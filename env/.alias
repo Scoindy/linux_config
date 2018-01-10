@@ -39,7 +39,7 @@ alias gr="git remote -v"
 alias gs="git status"
 alias gc="git clean -dxi"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
-# alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '( printf '%50s\n' | tr ' ' && -echo {} && cd {} && git status && echo)' \;"
+alias gssh="ssh-add /home/scott/.ssh/github_rsa"
 
 ####
 #  Pacman
@@ -47,7 +47,7 @@ alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} &
 alias pmi="sudo pacman -S"
 alias pmu="sudo pacman -Syu"
 alias pmr="sudo pacman -Rsn"
-alias pms="sudp pacman -Qi"
+alias pms="sudo pacman -Qi"
 
 ####
 #  ssh authentication localhost

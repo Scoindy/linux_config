@@ -1,0 +1,7 @@
+#!/bin/bash
+####
+#  Installs the UrBackup client
+####
+[ "$(whoami)" != "root" ] && echo "urbc: must be run as root" && exit 1
+
+TF=`mktemp` && wget "https://hndl.urbackup.org/Client/2.1.17/UrBackup%20Client%20Linux%202.1.17.sh" -O $TF && sh $TF; rm $TF
