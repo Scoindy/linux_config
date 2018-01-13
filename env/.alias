@@ -23,7 +23,7 @@ alias trash="ls -ltr $HOME/trash"
 alias empty="ls $HOME/trash | xargs -i -t \rm -rf $HOME/trash/{}; echo done."
 alias mshare="sudo mount -t vboxsf _sprite /share"
 
-alias wik="cd /var/www/html/wiki_test"
+alias wik="cd /var/www/html/w"
 alias www="cd /var/www/html"
 
 alias rm="my_rm"
