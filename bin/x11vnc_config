@@ -1,0 +1,16 @@
+o "missing password. . ." && exit 1
+sudo x11vnc -storepasswd $1 /etc/x11vnc.pass
+cat << EOF > /tmp/x11vnc.service
+[Unit]
+Description=Start x11vnc at startup.
+After=multi-user.target
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared
+[Install]
+WantedBy=multi-user.target
+EOF
+sudo mv /tmp/x11vnc.service /lib/systemd/system/x11vnc.service
+sudo systemctl daemon-reload
+sudo systemctl enable x11vnc.service
+sudo systemctl start x11vnc.service

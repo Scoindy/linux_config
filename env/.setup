@@ -6,7 +6,7 @@ export HOME_TSH="$HOME/trash"
 export EDITOR="vi"
 export HISTSIZE=10000
 export HISTFILESIZE=20000
-export PATH=".:$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export CLASSPATH="/usr/share/java"
 
 export LD_LIBRARY_PATH="/usr/include:/usr/lib/x86_64-linux-gnu:/usr/share/lintian/overrides"
