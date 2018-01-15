@@ -38,6 +38,7 @@ alias  g="cd $GITHOME"
 alias gr="git remote -v"
 alias gs="git status"
 alias gc="git clean -dxi"
+alias gl="git log"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 alias gssh="ssh-add /home/scott/.ssh/github_rsa"
 
