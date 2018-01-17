@@ -25,7 +25,7 @@ set laststatus=2
 set mouse=v
 
 syntax off
-colorscheme swblue002
+colorscheme swblue001
 inoremap <C-U> <C-G>u<C-U>
 
 " jump to the last position when reopening a file
