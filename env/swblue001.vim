@@ -16,7 +16,7 @@ let g:colors_name = expand('<sfile>:t:r')
 "     #2ECC71   green
 "
 "  
-hi Normal       guifg=#FFFFFF guibg=#0000FF guisp=#FFCC00 gui=NONE ctermfg=189 ctermbg=NONE cterm=NONE
+hi Normal       guifg=#FFFFFF guibg=#0000FF guisp=#FFCC00 gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
 hi ErrorMsg     guibg=Red guifg=White
 hi WarningMsg   guifg=#EB984E
 hi StatusLine   guifg=#FFCC00 guibg=#0000FF guisp=#DB741F gui=underline ctermfg=254 ctermbg=166 cterm=underline

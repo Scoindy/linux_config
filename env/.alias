@@ -23,8 +23,8 @@ alias trash="ls -ltr $HOME/trash"
 alias empty="ls $HOME/trash | xargs -i -t \rm -rf $HOME/trash/{}; echo done."
 alias mshare="sudo mount -t vboxsf _sprite /share"
 
-alias wik="cd /var/www/public_html/wiki_test"
-alias www="cd /var/www/public_html"
+alias wik="cd /var/www/html/w"
+alias www="cd /var/www/html"
 
 alias rm="my_rm"
 alias mv="mv -i"
@@ -38,6 +38,7 @@ alias  g="cd $GITHOME"
 alias gr="git remote -v"
 alias gs="git status"
 alias gc="git clean -dxi"
+alias gl="git log"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 alias gssh="ssh-add /home/scott/.ssh/github_rsa"
 
