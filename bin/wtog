@@ -35,6 +35,8 @@ case "$UP" in
               nmcli con up pc_wired
               ;;
            *) echo "no interfaces currently connected"
+              echo "[wifi] connecting..."
+              nmcli con up pc_wifi
               ;;
 esac
 

@@ -48,6 +48,7 @@ alias pmi="sudo pacman -S"
 alias pmu="sudo pacman -Syu"
 alias pmr="sudo pacman -Rsn"
 alias pms="sudo pacman -Qi"
+alias pmsync="sudo pacman -Syy"
 
 ####
 #  ssh authentication localhost
