@@ -39,6 +39,7 @@ alias gr="git remote -v"
 alias gs="git status"
 alias gc="git clean -dxi"
 alias gl="git log"
+alias gt="ssh -T git@github.com"
 alias gsa="find $GITHOME -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status && echo)' \;"
 alias gssh="ssh-add /home/scott/.ssh/github_rsa"
 
@@ -60,13 +61,5 @@ alias pmsync="sudo pacman -Syy"
 #  Xorg
 ####
 #alias sx="startx -- -keeptty >> /home/scott/.xsession-errors 2>&1"
-
-####
-#  Pacman
-####
-alias pmi="sudo pacman -S"
-alias pmu="sudo pacman -Syu"
-alias pmr="sudo pacman -Rsn"
-alias pmq="sudo pacman -Qev"
 
 alias pts="phoronix-test-suite"
