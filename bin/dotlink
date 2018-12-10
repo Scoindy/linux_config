@@ -1,0 +1,16 @@
+cd
+
+\rm .alias
+\rm .setup
+\rm .vimrc
+sudo \rm /usr/share/vim/vim80/colors/swblue002.vim
+
+ln -sf /mnt/nyc/git/peppercentral/env/.alias .
+
+ln -sf /mnt/nyc/git/peppercentral/env/.setup .
+
+ln -sf /mnt/nyc/git/peppercentral/env/.vimrc .
+
+ln -sf /mnt/nyc/git/peppercentral/bin .
+
+sudo ln -sf /mnt/nyc/git/peppercentral/env/swblue002.vim /usr/share/vim/vim80/colors/swblue002.vim
